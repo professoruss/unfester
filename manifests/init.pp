@@ -7,5 +7,6 @@ define unfester (
   exec { "${title}":
     command => "${chattr_path} -i ${path}",
     onlyif  => "[ `${lsattr_path} ${path} | ${cut_path} -c5` = 'i' ]",
+    path    => '/usr/bin:/bin',
   }
 }
